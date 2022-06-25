@@ -79,7 +79,7 @@ const users = [
     },
 ];
 
-function selectUsers(elem, index) {
+function selectUsers(elem) {
     if (elem["registrationDate"] == "09.10.2021" || elem["registrationDate"] == "10.10.2021")
         console.log(elem["firstName"], elem["lastName"])
 }

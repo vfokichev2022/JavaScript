@@ -9,4 +9,4 @@ function filterCards(elem, index) {
 
 const newUserCards = userCards.filter(filterCards)
 
-newUserCards.forEach((elem, index) => console.log(elem["name"]))
+newUserCards.forEach((elem) => console.log(elem["name"]))
