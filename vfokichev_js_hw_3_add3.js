@@ -6,17 +6,17 @@ const enterprises = [
         {
           id: 2,
           name: "Отдел тестирования",
-          employees_count: 10,
+          employees_count: 1,
         },
         {
           id: 3,
           name: "Отдел маркетинга",
-          employees_count: 20,
+          employees_count: 2,
         },
         {
           id: 4,
           name: "Администрация",
-          employees_count: 15,
+          employees_count: 21,
         },
       ]
     },
@@ -69,20 +69,26 @@ const enterprises = [
 //   Предприятие 3 (нет сотрудников)
 //   - Отдел аналитики (нет сотрудников)
 
-function showEnterprise(elem, index) {
+function strEmployeesCount(count) {
+    let employees_str
+    if (count == 0)
+        return " (нет сотрудников)"
+    else if (count % 10 == 1 && count % 100 != 11)
+        employees_str = ' сотрудник'
+    else if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 > 20)) 
+        employees_str = ' сотрудника'
+    else
+        employees_str = ' сотрудников'
+    return " (" + count + employees_str + ")"
+}
 
+function showEnterprise(elem) {
     let enterprise_employees_count = 0
     for (let department of elem.departments)
         enterprise_employees_count = enterprise_employees_count + department["employees_count"]
-    if (enterprise_employees_count)
-        console.log(elem["name"] + " (" + enterprise_employees_count + " сотрудников)")
-    else 
-        console.log(elem["name"] + " (нет сотрудников)")
+    console.log(elem["name"] + strEmployeesCount(enterprise_employees_count))
     for (let department of elem.departments) 
-        if (department["employees_count"])
-            console.log("- "+ department["name"] + " (" + department["employees_count"] + " сотрудников)")
-        else
-            console.log("- "+ department["name"] + " (нет сотрудников)")
+        console.log("- "+ department["name"] + strEmployeesCount(department["employees_count"]))
 }
 
 console.log("задание 1")
