@@ -128,7 +128,7 @@ console.log("")
 // Пример:
 // addEnterprise("Название нового предприятия")
 
-let enterprises_new = enterprises
+let enterprises_new = enterprises.slice()
 
 function getMaxId() {
     let r = 0
