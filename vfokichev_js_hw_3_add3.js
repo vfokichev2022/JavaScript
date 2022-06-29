@@ -223,7 +223,6 @@ console.log("")
 // deleteEnterprise(1)
 
 function deleteEnterprise(enterprise_id) {
-    // enterprises_new = enterprises_new.filter((elem) => {if (elem.id != enterprise_id) return elem})
     const i = enterprises_new.findIndex(elem => elem.id == enterprise_id)
     if (i != -1)
         enterprises_new.splice(i, 1)
