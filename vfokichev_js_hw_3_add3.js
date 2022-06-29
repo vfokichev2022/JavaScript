@@ -180,9 +180,13 @@ console.log("")
 // Пример:
 // editEnterprise(1, "Новое название предприятия")
 
+function show_rename_info(id, name_old, name_new) {
+  console.log("id = " + id +  " " + name_old + " >>> " + name_new)
+}
+
 function editEnterprise(enterprise_id, enterprise_name) {
-    let enterprise = enterprises_new.find((elem) => {if (elem.id == enterprise_id) return elem})
-    console.log("id = " + enterprise.id +  " " + enterprise.name + " >>> " + enterprise_name)
+    let enterprise = enterprises_new.find(elem => elem.id == enterprise_id)
+    show_rename_info(enterprise.id, enterprise.name, enterprise_name)
     enterprise.name = enterprise_name
 }
 
@@ -199,9 +203,9 @@ console.log("")
 
 function editDepartment(department_id, department_name) {
     for (let enterprise of enterprises_new) {
-        department = enterprise.departments.find((elem) => {if (elem.id == department_id) return elem})
+        department = enterprise.departments.find(elem => elem.id == department_id)
         if (department) {
-            console.log("id = " + department.id +  " " + department.name + " >>> " + department_name)
+            show_rename_info(department.id, department.name, department_name)
             department.name = department_name
         }
     }
