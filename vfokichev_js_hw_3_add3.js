@@ -265,11 +265,11 @@ console.log("")
 
 function moveEmployees(from_id, to_id) {
     for (let enterprise of enterprises_new) {
-        let from_dep = enterprise.departments.find((elem) => {if (elem.id == from_id) return elem})
-        let to_dep = enterprise.departments.find((elem) => {if (elem.id == to_id) return elem})
+        let from_dep = enterprise.departments.find(elem => elem.id == from_id)
+        let to_dep = enterprise.departments.find(elem => elem.id == to_id)
         if (from_dep && to_dep) {
             console.log(enterprise.name, from_dep, to_dep)
-            to_dep.employees_count = to_dep.employees_count + from_dep.employees_count
+            to_dep.employees_count += from_dep.employees_count
             from_dep.employees_count = 0
             console.log(enterprise.name, from_dep, to_dep)
         }  
