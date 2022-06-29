@@ -245,8 +245,10 @@ console.log("")
 
 function deleteDepartment(department_id) {
     for (let enterprise of enterprises_new) {
-        enterprise.departments = enterprise.departments.filter((elem) => {if (!(elem.id == department_id && elem.employees_count == 0)) return elem})
-        console.log(enterprise.departments)
+        const i = enterprise.departments.findIndex(elem => (elem.id == department_id && elem.employees_count == 0))
+        if (i != -1)
+            enterprise.departments.splice(i, 1)
+            console.log(i, enterprise.departments)
     }
 
 }
