@@ -1,4 +1,4 @@
-JavaScript homework 3 (additional) 
+##  JavaScript HW 3 (additional) 
 
 Task 1.
 
